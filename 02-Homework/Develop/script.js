@@ -7,28 +7,37 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
-
 // Add event listener to generate button
-generateBtn.addEventListener("click", pswAlert);
-generateBtn.onclick=pswAlert
+generateBtn.addEventListener("click", randomUpperChar,randomSpecialChar,randomLowerChar);
 
-var symChar = randomSpecialChar
-// var upChar =
-// var lowChar =
- 
-function pswAlert() {
-  alert("ktipo")
+function randomUpperChar() {
+  // example set of special chars as a string in no particular order
+  var s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  // generating a random index into the string and extracting the character at that position
+  s = s.substr(Math.floor(s.length * Math.random()), 1);
+  console.log(s)
+  return s
 }
-function randomSpecialChar () {
+function randomSpecialChar() {
   // example set of special chars as a string in no particular order
   var s = "!\"§$%&/()=?\u{20ac}";
 
   // generating a random index into the string and extracting the character at that position
-  return s.substr(Math.floor(s.length*Math.random()), 1);
+  s = s.substr(Math.floor(s.length * Math.random()), 1);
+  console.log(s)
+  return s
 } 
+function randomLowerChar(alpha) {
+  // example set of special chars as a string in no particular order
+  var s = "abcdefghijklmnopqrstuvwxyz";
 
+  // generating a random index into the string and extracting the character at that position
+  return s.substr(Math.floor(s.length * Math.random()), 1);
+}
+var data = randomLowerChar
+console.log(data)
 
 
 //GIVEN I need a new, secure password
