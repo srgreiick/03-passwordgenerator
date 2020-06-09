@@ -9,7 +9,9 @@ function writePassword() {
   passwordText.value = password;
 }
 // Add event listener to generate button
-generateBtn.addEventListener("click", randomUpperChar,randomSpecialChar,randomLowerChar);
+generateBtn.addEventListener("click", randomUpperChar);
+generateBtn.addEventListener("click", randomSpecialChar);
+generateBtn.addEventListener("click", randomLowerChar);
 
 function randomUpperChar() {
   // example set of special chars as a string in no particular order
@@ -29,15 +31,16 @@ function randomSpecialChar() {
   console.log(s)
   return s
 } 
-function randomLowerChar(alpha) {
+function randomLowerChar() {
   // example set of special chars as a string in no particular order
   var s = "abcdefghijklmnopqrstuvwxyz";
 
   // generating a random index into the string and extracting the character at that position
-  return s.substr(Math.floor(s.length * Math.random()), 1);
+  s = s.substr(Math.floor(s.length * Math.random()), 1);
+  console.log(s)
+  return s
 }
-var data = randomLowerChar
-console.log(data)
+
 
 
 //GIVEN I need a new, secure password
