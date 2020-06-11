@@ -9,9 +9,21 @@ function writePassword() {
   passwordText.value = password;
 }
 // Add event listener to generate button
-generateBtn.addEventListener("click", randomUpperChar);
-generateBtn.addEventListener("click", randomSpecialChar);
-generateBtn.addEventListener("click", randomLowerChar);
+generateBtn.addEventListener("click", createPassword);
+
+
+function createPassword() {
+  var passwordLength = prompt("Password Length? 8-128");
+  if (passwordLength > 128 || passwordLength < 8) {
+    alert("Password must be greater than 8 and less than 128 charaters")
+  }
+
+  var passwordChar = prompt("Do you want UpperCase letters?")
+ 
+
+
+}
+
 
 function randomUpperChar() {
   // example set of special chars as a string in no particular order
@@ -22,6 +34,7 @@ function randomUpperChar() {
   console.log(s)
   return s
 }
+
 function randomSpecialChar() {
   // example set of special chars as a string in no particular order
   var s = "!\"§$%&/()=?\u{20ac}";
@@ -40,6 +53,7 @@ function randomLowerChar() {
   console.log(s)
   return s
 }
+
 
 
 
