@@ -13,17 +13,21 @@ generateBtn.addEventListener("click", createPassword);
 
 
 function createPassword() {
-     
+  var passwordChar = "";
   var passwordLength = prompt("Password Length? 8-128");
   if (passwordLength > 128 || passwordLength < 8) {
-    alert("Password must be greater than 8 and less than 128 charaters")
+    alert("Password must be greater than 8 and less than 128 charaters");
   }
 
-  var passwordChar = confirm("Do you want UpperCase letters?")
- if (passwordChar = true)
+  var passwordUpper = confirm("Do you want UpperCase letters?");
+ if (passwordUpper)
   passwordChar += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  console.log(passwordChar)
+  console.log(passwordChar);
 
+  var passwordLower = confirm("Do you want LowerCase letters?");
+  if (passwordLower)
+   passwordChar += "abcdefghijklmnopqrstuvwxxyz";
+   console.log(passwordChar);
 }
 
 
