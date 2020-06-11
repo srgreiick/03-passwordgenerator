@@ -23,7 +23,7 @@ function createPassword() {
  if (passwordUpper)
   passwordChar += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   console.log(passwordChar);
-
+//
   var passwordLower = confirm("Do you want LowerCase letters?");
   if (passwordLower)
    passwordChar += "abcdefghijklmnopqrstuvwxxyz";
