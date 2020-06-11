@@ -19,6 +19,7 @@ function createPassword() {
   var passwordLength = prompt("Password Length? 8-128");
   if (passwordLength > 128 || passwordLength < 8) {
     alert("Password must be greater than 8 and less than 128 charaters");
+    return createPassword()
   }
 //Adds upper case letters to possible password variable
   var passwordUpper = confirm("Do you want UpperCase letters?");
@@ -37,42 +38,20 @@ function createPassword() {
     console.log(passwordChar)
 }
 //Adds numbers to possible password variable
-var passwordNumbers = confirm("Do you want symbols?");
+var passwordNumbers = confirm("Do you want numbers?");
 if (passwordNumbers) {
   passwordChar += 1234567890;
   console.log(passwordChar)
 }
+//
+if (passwordChar === ""){
+  alert("You need to pick something. Try again.");
+  return createPassword()
+}
 }
 
 
-function randomUpperChar() {
-  // example set of special chars as a string in no particular order
-  var s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-  // generating a random index into the string and extracting the character at that position
-  s = s.substr(Math.floor(s.length * Math.random()), 1);
-  console.log(s)
-  return s
-}
-
-function randomSpecialChar() {
-  // example set of special chars as a string in no particular order
-  var s = "!\"§$%&/()=?\u{20ac}";
-
-  // generating a random index into the string and extracting the character at that position
-  s = s.substr(Math.floor(s.length * Math.random()), 1);
-  console.log(s)
-  return s
-} 
-function randomLowerChar() {
-  // example set of special chars as a string in no particular order
-  var s = "abcdefghijklmnopqrstuvwxyz";
-
-  // generating a random index into the string and extracting the character at that position
-  s = s.substr(Math.floor(s.length * Math.random()), 1);
-  console.log(s)
-  return s
-}
 
 
 
