@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = createPassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -13,42 +13,50 @@ generateBtn.addEventListener("click", createPassword);
 
 
 function createPassword() {
-//Blank variable to store possible password characters
+  //Blank variable to store possible password characters
   var passwordChar = "";
-//User defines password length with safty if they coose too short or to long  
+  //User defines password length with safty if they coose too short or to long  
   var passwordLength = prompt("Password Length? 8-128");
-  if (passwordLength > 128 || passwordLength < 8) {
+  while (passwordLength > 128 || passwordLength < 8) {
     alert("Password must be greater than 8 and less than 128 charaters");
-    return createPassword()
+    passwordLength = prompt("Password Length? 8-128");
   }
-//Adds upper case letters to possible password variable
+  //Adds upper case letters to possible password variable
   var passwordUpper = confirm("Do you want UpperCase letters?");
- if (passwordUpper)
-  passwordChar += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  if (passwordUpper)
+    passwordChar += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   console.log(passwordChar);
-//Adds lower case letters to possible password variable
+  //Adds lower case letters to possible password variable
   var passwordLower = confirm("Do you want LowerCase letters?");
   if (passwordLower)
-   passwordChar += "abcdefghijklmnopqrstuvwxxyz";
-   console.log(passwordChar);
-//Adds symbols to possible password variables
+    passwordChar += "abcdefghijklmnopqrstuvwxxyz";
+  console.log(passwordChar);
+  //Adds symbols to possible password variables
   var passwordSymbols = confirm("Do you want symbols?");
   if (passwordSymbols) {
     passwordChar += "!\"§$%&/()=?\u{20ac}";
-    console.log(passwordChar)
+    console.log(passwordChar);
+  }
+  //Adds numbers to possible password variable
+  var passwordNumbers = confirm("Do you want numbers?");
+  if (passwordNumbers) {
+    passwordChar += 1234567890;
+    console.log(passwordChar);
+  }
+  //Fail state to ensure password has avalible characters
+  if (passwordChar === "") {
+    alert("You need to pick something. Try again.");
+    console.log(passwordChar);
+  }
+  //Randomizes characters and creates string by randomizing the passwordChar variable and multiplying it by total length
+  var finalPassword = ""; 
+  for (var i = 1; i <= passwordLength; i++) {
+    finalPassword += passwordChar.charAt(Math.floor(Math.random() * passwordChar.length));
+    console.log(finalPassword)
+  }
+  return finalPassword; 
 }
-//Adds numbers to possible password variable
-var passwordNumbers = confirm("Do you want numbers?");
-if (passwordNumbers) {
-  passwordChar += 1234567890;
-  console.log(passwordChar)
-}
-//
-if (passwordChar === ""){
-  alert("You need to pick something. Try again.");
-  return createPassword()
-}
-}
+
 
 
 
