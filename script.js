@@ -9,7 +9,7 @@ function writePassword() {
   passwordText.value = password;
 }
 // Add event listener to generate button
-generateBtn.addEventListener("click", createPassword);
+generateBtn.addEventListener("click", writePassword);
 
 
 function createPassword() {
@@ -47,6 +47,7 @@ function createPassword() {
   if (passwordChar === "") {
     alert("You need to pick something. Try again.");
     console.log(passwordChar);
+    return createPassword()
   }
   //Randomizes characters and creates string by randomizing the passwordChar variable and multiplying it by total length
   var finalPassword = ""; 
