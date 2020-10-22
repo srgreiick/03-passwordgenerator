@@ -23,4 +23,4 @@ This application is covered under the AGPLv3 license.
 
 
 ## Questions
-Please send questions or inquiries to: 
+Please send questions or inquiries to:  
